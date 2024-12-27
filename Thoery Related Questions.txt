@@ -1,0 +1,30 @@
+Q:-Need for Databases
+
+A:-Databases helps us in :-
+1)Structured and Organized Data Storage: Databases store data systematically in tables, making it easy to manage and retrieve.
+Example: User information like username, email is stored in a structured table.
+Efficient Data Retrieval and Scalability
+
+2)Databases handle large datasets and allow quick data access using optimized queries.
+Example: An e-commerce site retrieves user purchase history instantly, even with millions of users.
+
+3)Data Integrity and Security:-Enforces consistency through constraints (e.g., foreign keys) and protects sensitive data using authentication and encryption.
+Example: Ensuring user_id in appointments is valid and storing passwords securely.
+
+4)Backup, Recovery, and Insights:-Databases offer data recovery after failures and support analytics to derive business insights.
+Example: Recovering financial records after a crash and analyzing sales trends to predict future demand.
+
+
+Q:-Concept of normalization
+
+A:-Normalization is the process of organizing data in a database to minimize redundancy and ensure data integrity. It involves dividing large tables into smaller, related tables and defining relationships between them using keys. Normalization helps in:
+1)Eliminate Redundancy: Reduces duplicate data, saving storage space and ensuring consistency.
+2)Improve Data Integrity: Ensures that changes in one part of the database are accurately reflected across related data.
+3)Optimize Queries: Simplifies and speeds up data retrieval by reducing the size and complexity of tables.
+4)Avoid Update Anomalies: Prevents errors during data insertions, deletions, or updates due to improper table structure.
+
+Types of Normalization:-
+1)First Normal Form (1NF):-Ensures that all columns contain atomic values and each row is unique.
+2)Second Normal Form (2NF): Achieves 1NF and eliminates partial dependencies, ensuring that non-key attributes depend on the whole primary key.
+3)Third Normal Form (3NF):Achieves 2NF and removes transitive dependencies, ensuring that non-key attributes depend only on the primary key.
+4)Boyce-Codd Normal Form (BCNF):A stricter version of 3NF where every determinant is a candidate key, removing any redundancy due to functional dependencies.
