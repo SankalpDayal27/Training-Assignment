@@ -1,7 +1,7 @@
 
 import java.sql.*;
 
-public class Main {
+public class Statements {
 
     private static final String SQLurl = "XYZ";
     private static final String SQLusername = "ABC";
