@@ -1,0 +1,520 @@
+mysql> SELECT * FROM DOCTOR;
++----+-----------------------------+----------------------------------------------+----------------------------------------------+
+| id | place_id                    | name                                         | address                                      |
++----+-----------------------------+----------------------------------------------+----------------------------------------------+
+|  1 | ChIJxZ6BjJkOvUcR5HseKi_kmmE | Praxis Frauenarzt am Zoo, Peter Ludwig       | Am Tiergarten 18, Frankfurt am Main          |
+|  2 | ChIJ_zb973IPvUcReiqFIjPs-ME | Ambulanz fr Diabetologie und Endokrinologie | Theobald-Christ-Straáe 10, Frankfurt am Main |
+|  3 | 10                          | kunj                                         | Kandivali                                    |
+|  4 | 12                          | nishant                                      | Borivali                                     |
+|  5 | 11                          | kris                                         | Powai                                        |
+|  6 | 9                           | henil                                        | Bhynadar                                     |
++----+-----------------------------+----------------------------------------------+----------------------------------------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM USER;
++----+-----------+------------------------------------------------------------------+--------------------------------+-----------+----------+--------+-------------+-------------------+-------------+--------------------+---------+-------------------+-------------------+-----------------------+---------------+---------------+-------+
+| id | username  | password                                                         | email                          | firstname | lastname | gender | dateofbirth | street            | housenumber | city               | zipcode | lat               | lng               | healthinformation     | insurancename | insurancetype | admin |
++----+-----------+------------------------------------------------------------------+--------------------------------+-----------+----------+--------+-------------+-------------------+-------------+--------------------+---------+-------------------+-------------------+-----------------------+---------------+---------------+-------+
+|  1 | admin     | a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 | nabil@google.com               | nabil     | akir     | m      | 2005-06-01  | gruneliusstr      | 103         | frankfurt          | 60599   | 50.09920169999999 | 8.722334499999999 | no previous illnesses | aok hessen    | public        |     1 |
+|  2 | test      | 5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5 | test@gmx.net                   | Tim       | Mache    | d      | 2001-09-02  | Teststr           | 98          | Offenbach am Main  | 60599   | 50.13145977989272 |  8.69255162989272 |                       |               | private       |     0 |
+|  3 | LuanTest  | 03dd46b7449addc139339b7849d8bfda038ea714e54e6acff77241cf66810204 | jamyc19@gmail.com              | Luan      | Test     | m      | 2002-07-19  | Rua da Felicidade | 030         | Florian¢polis      | 60431   | 50.13145977989272 |  8.69255162989272 | T“ de boa             | Joa           | public        |     0 |
+|  4 | hoaaang   | 45e07a1045393aa08021f62a27f6d75fc9d49b14b34ddbe2f395d595cb769819 | nguyen_hoang0507@yahoo.com     | Hoang     | N        | m      | 2000-07-05  | Straáe            | 57          | Frankfurt am Main  | 65934   | 50.13145977989272 |  8.69255162989272 | no information        | AOK           | public        |     0 |
+|  5 | noel.b    | a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 | noel.b@gmx.net                 | Noel      | Bromkamp | f      | 2001-12-20  | jeroom beckstraat | 4           | Antwerpen, Belgien | 2100    |        51.2299792 |         4.4584069 | diabetes              |               | private       |     0 |
+|  6 | Sankalp   | bd77583f6bc0407b75e48fa837e8878a1f404c7fcb542ead843ee8b2568a73cb | sankalpbdayal@gmail.com        | Sankalp   | Dayal    | m      | 1990-01-01  | 21                | 12          | Mumbai             | 3456    |                 0 |                 0 | healthy               | Bajaj         | public        |     0 |
+|  7 | Time      | f22b772235c076b9475bb08a0941e56804b89ceb9f3995ade5f365abad69b3bd | xyz@gmail.com                  | Tim       | Mache    | m      | 2001-01-01  | Teststr           | 98          | Offenbach am Main  | 60599   |                 0 |                 0 | healthy               | XYZ           | public        |     0 |
+|  8 | nishant   | 6277a58afca46ac01c87533fb365c2f94484a9ee00a0929666d39310afa91a36 | nishantchandeliya007@gmail.com | Aryan     | Sharma   | m      | 2003-10-03  | Nl complex        | 603         | Mumbai             | 400068  |                 0 |                 0 | High BP               | Maxlife       | public        |     0 |
+|  9 | kunj      | 844028f83466563bd36a3a218de00be71106d70c30673576bc64467753369b59 | kunj@gmail.com                 | Kunj      | Chauhan  | m      | 2008-06-03  | SV Road           | C156        | Mumbai             | 4768    |                 0 |                 0 | fit                   | PolicyBazzar  | public        |     0 |
+| 10 | sonu      | bd77583f6bc0407b75e48fa837e8878a1f404c7fcb542ead843ee8b2568a73cb | sad@gmail.com                  | sonu      | sd       | m      | 2003-11-01  | 34                | 123         | mumbai             | 6789    |                 0 |                 0 | healthy               | bajaj         | public        |     0 |
+| 11 | sankalp27 | 0bebe61bb8839bb0fe8f930e90e5630c2f3f18a1a2b858a5c20b8c6929ec4c34 | sank78@gmail.com               | sankalp   | Dayal    | m      | 2003-02-24  | sahakar           | 124         | mumbai             | 1234    |                 0 |                 0 | healthy               | lic           | public        |     0 |
++----+-----------+------------------------------------------------------------------+--------------------------------+-----------+----------+--------+-------------+-------------------+-------------+--------------------+---------+-------------------+-------------------+-----------------------+---------------+---------------+-------+
+11 rows in set (0.02 sec)
+
+mysql> SELECT DISTINCT CITY FROM USER;    //find distinct cities
++--------------------+
+| CITY               |
++--------------------+
+| frankfurt          |
+| Offenbach am Main  |
+| Florian¢polis      |
+| Frankfurt am Main  |
+| Antwerpen, Belgien |
+| Mumbai             |
++--------------------+
+6 rows in set (0.01 sec)
+
+
+mysql> SELECT * FROM USER WHERE GENDER="m" AND CITY="Mumbai";      //Users that are male and live in mumbai
++----+-----------+------------------------------------------------------------------+--------------------------------+-----------+----------+--------+-------------+------------+-------------+--------+---------+-----+-----+-------------------+---------------+---------------+-------+
+| id | username  | password                                                         | email                          | firstname | lastname | gender | dateofbirth | street     | housenumber | city   | zipcode | lat | lng | healthinformation | insurancename | insurancetype | admin |
++----+-----------+------------------------------------------------------------------+--------------------------------+-----------+----------+--------+-------------+------------+-------------+--------+---------+-----+-----+-------------------+---------------+---------------+-------+
+|  6 | Sankalp   | bd77583f6bc0407b75e48fa837e8878a1f404c7fcb542ead843ee8b2568a73cb | sankalpbdayal@gmail.com        | Sankalp   | Dayal    | m      | 1990-01-01  | 21         | 12          | Mumbai | 3456    |   0 |   0 | healthy           | Bajaj         | public        |     0 |
+|  8 | nishant   | 6277a58afca46ac01c87533fb365c2f94484a9ee00a0929666d39310afa91a36 | nishantchandeliya007@gmail.com | Aryan     | Sharma   | m      | 2003-10-03  | Nl complex | 603         | Mumbai | 400068  |   0 |   0 | High BP           | Maxlife       | public        |     0 |
+|  9 | kunj      | 844028f83466563bd36a3a218de00be71106d70c30673576bc64467753369b59 | kunj@gmail.com                 | Kunj      | Chauhan  | m      | 2008-06-03  | SV Road    | C156        | Mumbai | 4768    |   0 |   0 | fit               | PolicyBazzar  | public        |     0 |
+| 10 | sonu      | bd77583f6bc0407b75e48fa837e8878a1f404c7fcb542ead843ee8b2568a73cb | sad@gmail.com                  | sonu      | sd       | m      | 2003-11-01  | 34         | 123         | mumbai | 6789    |   0 |   0 | healthy           | bajaj         | public        |     0 |
+| 11 | sankalp27 | 0bebe61bb8839bb0fe8f930e90e5630c2f3f18a1a2b858a5c20b8c6929ec4c34 | sank78@gmail.com               | sankalp   | Dayal    | m      | 2003-02-24  | sahakar    | 124         | mumbai | 1234    |   0 |   0 | healthy           | lic           | public        |     0 |
++----+-----------+------------------------------------------------------------------+--------------------------------+-----------+----------+--------+-------------+------------+-------------+--------+---------+-----+-----+-------------------+---------------+---------------+-------+
+5 rows in set (0.01 sec)
+
+
+mysql> INSERT INTO DOCTOR (`place_id`, `name`, `address`)          //insert 2 doctors
+    -> VALUES 
+    -> ('KANDIVALI', 'DR.Parker', 'Mahavir Nagar,Kandivali'),
+    -> ('Chembur', 'Dr.Mithani', 'Shell Colony,Sahakar Nagar,Chembur');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT ID,USERNAME FROM USER WHERE (GENDER='M' AND CITY='MUMBAI') OR (GENDER='F' AND CITY='jeroom beckstraat'); //find user which are male and live in Mumbai or female and live in jeroom beckstratt
++----+-----------+
+| ID | USERNAME  |
++----+-----------+
+|  6 | Sankalp   |
+|  8 | nishant   |
+|  9 | kunj      |
+| 10 | sonu      |
+| 11 | sankalp27 |
++----+-----------+
+5 rows in set (0.00 sec)
+
+
+mysql> SELECT ID,USERNAME FROM USER WHERE (GENDER='M' AND CITY='MUMBAI') OR (GENDER='F' AND CITY='Antwerpen, Belgien');
++----+-----------+
+| ID | USERNAME  |
++----+-----------+
+|  5 | noel.b    |
+|  6 | Sankalp   |
+|  8 | nishant   |
+|  9 | kunj      |
+| 10 | sonu      |
+| 11 | sankalp27 |
++----+-----------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT ID,USERNAME,DATEOFBIRTH FROM USER ORDER BY DATEOFBIRTH;  //Arrange users on basis of birthdate in ascending order 
++----+-----------+-------------+
+| ID | USERNAME  | DATEOFBIRTH |
++----+-----------+-------------+
+|  6 | Sankalp   | 1990-01-01  |
+|  4 | hoaaang   | 2000-07-05  |
+|  7 | Time      | 2001-01-01  |
+|  2 | test      | 2001-09-02  |
+|  5 | noel.b    | 2001-12-20  |
+|  3 | LuanTest  | 2002-07-19  |
+| 11 | sankalp27 | 2003-02-24  |
+|  8 | nishant   | 2003-10-03  |
+| 10 | sonu      | 2003-11-01  |
+|  1 | admin     | 2005-06-01  |
+|  9 | kunj      | 2008-06-03  |
++----+-----------+-------------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT ID FROM APPOINTMENT ORDER BY DATEANDTIME DESC ;      //arrange appointments in terms of which is scheduled earliest 
++----+
+| ID |
++----+
+|  3 |
+|  4 |
+|  2 |
+|  5 |
+|  1 |
++----+
+5 rows in set (0.00 sec)
+
+mysql> select * from appointment;
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+| id | healthproblem | dateandtime         | reminder            | remindercheck | user_id | doctor_id |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+|  1 | diabetes      | 2009-08-01 15:45:00 | 2009-07-29 15:45:00 |             1 |       1 |         2 |
+|  2 | anxiety       | 2023-11-11 09:45:00 | 2023-11-03 09:45:00 |             1 |       7 |         3 |
+|  3 | chest pain    | 2023-12-12 12:30:00 | 2023-11-09 12:00:00 |             1 |       8 |         4 |
+|  4 | back pain     | 2023-11-19 09:34:00 | 2023-11-12 09:34:00 |             1 |       9 |         5 |
+|  5 | anxiety       | 2023-11-09 09:44:00 | 2023-11-02 09:44:00 |             1 |      10 |         6 |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql>  UPDATE APPOINTMENT SET remindercheck=0 WHERE id=3;    //update a row 
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from appointment;                            //updation successfull
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+| id | healthproblem | dateandtime         | reminder            | remindercheck | user_id | doctor_id |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+|  1 | diabetes      | 2009-08-01 15:45:00 | 2009-07-29 15:45:00 |             1 |       1 |         2 |
+|  2 | anxiety       | 2023-11-11 09:45:00 | 2023-11-03 09:45:00 |             1 |       7 |         3 |
+|  3 | chest pain    | 2023-12-12 12:30:00 | 2023-11-09 12:00:00 |             0 |       8 |         4 |
+|  4 | back pain     | 2023-11-19 09:34:00 | 2023-11-12 09:34:00 |             1 |       9 |         5 |
+|  5 | anxiety       | 2023-11-09 09:44:00 | 2023-11-02 09:44:00 |             1 |      10 |         6 |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> START TRANSACTION;                            //start transaction for deletion purposes
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DELETE FROM USER WHERE INSURANCETYPE='private';     //delete user with private insurance type
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> SELECT * FROM USER WHERE INSURANCETYPE='private';
+Empty set (0.00 sec)
+
+mysql> ROLLBACK;                                            //rollback the changes 
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT * FROM USER WHERE INSURANCETYPE='private';    //users with private insurance type not deleted permanently
++----+----------+------------------------------------------------------------------+----------------+-----------+----------+--------+-------------+-------------------+-------------+--------------------+---------+-------------------+------------------+-------------------+---------------+---------------+-------+
+| id | username | password                                                         | email          | firstname | lastname | gender | dateofbirth | street            | housenumber | city               | zipcode | lat               | lng              | healthinformation | insurancename | insurancetype | admin |
++----+----------+------------------------------------------------------------------+----------------+-----------+----------+--------+-------------+-------------------+-------------+--------------------+---------+-------------------+------------------+-------------------+---------------+---------------+-------+
+|  2 | test     | 5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5 | test@gmx.net   | Tim       | Mache    | d      | 2001-09-02  | Teststr           | 98          | Offenbach am Main  | 60599   | 50.13145977989272 | 8.69255162989272 |                   |               | private       |     0 |
+|  5 | noel.b   | a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 | noel.b@gmx.net | Noel      | Bromkamp | f      | 2001-12-20  | jeroom beckstraat | 4           | Antwerpen, Belgien | 2100    |        51.2299792 |        4.4584069 | diabetes          |               | private       |     0 |
++----+----------+------------------------------------------------------------------+----------------+-----------+----------+--------+-------------+-------------------+-------------+--------------------+---------+-------------------+------------------+-------------------+---------------+---------------+-------+
+2 rows in set (0.00 sec)
+
+
+mysql> SELECT ID,USERNAME FROM USER LIMIT 3;          //find top 3 users
++----+----------+
+| ID | USERNAME |
++----+----------+
+|  1 | admin    |
+|  2 | test     |
+|  3 | LuanTest |
++----+----------+
+3 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM SYMPTOMS WHERE SYMPTOM like '% pain';   //find symptoms that end with pain word
++----+----------------+---------------+
+| id | symptom        | doctortype_id |
++----+----------------+---------------+
+|  6 | back pain      |             1 |
+| 20 | period pain    |             8 |
+| 37 | stomach pain   |            13 |
+| 39 | chest pain     |            17 |
+| 40 | abdominal pain |            13 |
+| 41 | pelvic pain    |             8 |
++----+----------------+---------------+
+6 rows in set (0.01 sec)
+
+
+
+mysql> SELECT * FROM APPOINTMENT WHERE HEALTHPROBLEM IN ('anxiety' ,'diabetes');   //find appointments where health problem is either anxiety or diabetes
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+| id | healthproblem | dateandtime         | reminder            | remindercheck | user_id | doctor_id |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+|  1 | diabetes      | 2009-08-01 15:45:00 | 2009-07-29 15:45:00 |             1 |       1 |         2 |
+|  2 | anxiety       | 2023-11-11 09:45:00 | 2023-11-03 09:45:00 |             1 |       7 |         3 |
+|  5 | anxiety       | 2023-11-09 09:44:00 | 2023-11-02 09:44:00 |             1 |      10 |         6 |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+3 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM APPOINTMENT WHERE DATEANDTIME BETWEEN '2022-01-01 01:01:00' AND '2023-12-31 11:59:59'; //find appointment between the specified time
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+| id | healthproblem | dateandtime         | reminder            | remindercheck | user_id | doctor_id |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+|  2 | anxiety       | 2023-11-11 09:45:00 | 2023-11-03 09:45:00 |             1 |       7 |         3 |
+|  3 | chest pain    | 2023-12-12 12:30:00 | 2023-11-09 12:00:00 |             0 |       8 |         4 |
+|  4 | back pain     | 2023-11-19 09:34:00 | 2023-11-12 09:34:00 |             1 |       9 |         5 |
+|  5 | anxiety       | 2023-11-09 09:44:00 | 2023-11-02 09:44:00 |             1 |      10 |         6 |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM APPOINTMENT WHERE DATEANDTIME BETWEEN '2022-01-01 01:01:00' AND '2023-12-31 11:59:59' AND HEALTHPROBLEM IN('anxiety','diabetes');
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+| id | healthproblem | dateandtime         | reminder            | remindercheck | user_id | doctor_id |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+|  2 | anxiety       | 2023-11-11 09:45:00 | 2023-11-03 09:45:00 |             1 |       7 |         3 |
+|  5 | anxiety       | 2023-11-09 09:44:00 | 2023-11-02 09:44:00 |             1 |      10 |         6 |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+2 rows in set (0.00 sec)
+
+
+mysql> SELECT insurancetype, AVG(TIMESTAMPDIFF(YEAR, dateofbirth, CURDATE())) AS avg_age FROM user GROUP BY insurancetype HAVING avg_age > 15; #Average age of users for each insurance type, but insurance where the average age >15 years
++---------------+---------+
+| insurancetype | avg_age |
++---------------+---------+
+| public        | 22.3333 |
+| private       | 23.0000 |
++---------------+---------+
+2 rows in set (0.01 sec)
+
+
+mysql> DELIMITER //                                      //Create Stored Procedure to insert appointments
+mysql> CREATE PROCEDURE InsertAppointment (
+    ->     IN p_healthproblem VARCHAR(50),
+    ->     IN p_dateandtime TIMESTAMP,
+    ->     IN p_reminder TIMESTAMP,
+    ->     IN p_user_id INT,
+    ->     IN p_doctor_id INT
+    -> )
+    -> BEGIN
+    ->     INSERT INTO appointment (healthproblem, dateandtime, reminder, user_id, doctor_id)
+    ->     VALUES (p_healthproblem, p_dateandtime, p_reminder, p_user_id, p_doctor_id);
+    -> END //
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> DELIMITER ;
+mysql> SHOW PROCEDURE STATUS WHERE Db = 'docs';
++------+-------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| Db   | Name              | Type      | Definer        | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
++------+-------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| docs | InsertAppointment | PROCEDURE | root@localhost | 2024-12-26 20:36:11 | 2024-12-26 20:36:11 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
++------+-------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+1 row in set (0.03 sec)
+
+mysql> select * from appointment;   //addition of last two rows using callable and prepared statement
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+| id | healthproblem | dateandtime         | reminder            | remindercheck | user_id | doctor_id |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+|  1 | diabetes      | 2009-08-01 15:45:00 | 2009-07-29 15:45:00 |             1 |       1 |         2 |
+|  2 | anxiety       | 2023-11-11 09:45:00 | 2023-11-03 09:45:00 |             1 |       7 |         3 |
+|  3 | chest pain    | 2023-12-12 12:30:00 | 2023-11-09 12:00:00 |             1 |       8 |         4 |
+|  4 | back pain     | 2023-11-19 09:34:00 | 2023-11-12 09:34:00 |             1 |       9 |         5 |
+|  5 | anxiety       | 2023-11-09 09:44:00 | 2023-11-02 09:44:00 |             1 |      10 |         6 |
+|  6 |  Headache     | 2024-12-30 10:30:00 | 2024-12-29 10:30:00 |             0 |       1 |         2 |
+|  7 | Pneumonia     | 2024-01-01 10:00:00 | 2024-01-01 09:30:00 |             0 |       3 |         2 |
++----+---------------+---------------------+---------------------+---------------+---------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> notee;
+
+mysql> SELECT
+    ->     u.id AS user_id,
+    ->     u.username,
+    ->     a.id AS appointment_id,
+    ->     a.healthproblem,
+    ->     d.name AS doctor_name
+    -> FROM
+    ->     user u
+    -> LEFT JOIN
+    ->     appointment a ON u.id = a.user_id
+    -> LEFT JOIN
+    ->     doctor d ON a.doctor_id = d.id;
++---------+-----------+----------------+---------------+----------------------------------------------+
+| user_id | username  | appointment_id | healthproblem | doctor_name                                  |
++---------+-----------+----------------+---------------+----------------------------------------------+
+|       1 | admin     |              1 | diabetes      | Ambulanz für Diabetologie und Endokrinologie |
+|       1 | admin     |              6 |  Headache     | Ambulanz für Diabetologie und Endokrinologie |
+|       2 | test      |           NULL | NULL          | NULL                                         |
+|       3 | LuanTest  |              7 | Pneumonia     | Ambulanz für Diabetologie und Endokrinologie |
+|       4 | hoaaang   |           NULL | NULL          | NULL                                         |
+|       5 | noel.b    |           NULL | NULL          | NULL                                         |
+|       6 | Sankalp   |           NULL | NULL          | NULL                                         |
+|       7 | Time      |              2 | anxiety       | kunj                                         |
+|       8 | nishant   |              3 | chest pain    | nishant                                      |
+|       9 | kunj      |              4 | back pain     | kris                                         |
+|      10 | sonu      |              5 | anxiety       | henil                                        |
+|      11 | sankalp27 |           NULL | NULL          | NULL                                         |
++---------+-----------+----------------+---------------+----------------------------------------------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT
+    ->     u.id AS user_id,
+    ->     u.username,
+    ->     a.id AS appointment_id,
+    ->     a.healthproblem,
+    ->     d.name AS doctor_name
+    -> FROM
+    ->     user u
+    -> RIGHT JOIN
+    ->     appointment a ON u.id = a.user_id
+    -> RIGHT JOIN
+    ->     doctor d ON a.doctor_id = d.id;
++---------+----------+----------------+---------------+----------------------------------------------+
+| user_id | username | appointment_id | healthproblem | doctor_name                                  |
++---------+----------+----------------+---------------+----------------------------------------------+
+|    NULL | NULL     |           NULL | NULL          | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+|       1 | admin    |              1 | diabetes      | Ambulanz für Diabetologie und Endokrinologie |
+|       1 | admin    |              6 |  Headache     | Ambulanz für Diabetologie und Endokrinologie |
+|       3 | LuanTest |              7 | Pneumonia     | Ambulanz für Diabetologie und Endokrinologie |
+|       7 | Time     |              2 | anxiety       | kunj                                         |
+|       8 | nishant  |              3 | chest pain    | nishant                                      |
+|       9 | kunj     |              4 | back pain     | kris                                         |
+|      10 | sonu     |              5 | anxiety       | henil                                        |
+|    NULL | NULL     |           NULL | NULL          | DR.Parker                                    |
+|    NULL | NULL     |           NULL | NULL          | Dr.Mithani                                   |
+|    NULL | NULL     |           NULL | NULL          | DR.Parker                                    |
+|    NULL | NULL     |           NULL | NULL          | Dr.Mithani                                   |
++---------+----------+----------------+---------------+----------------------------------------------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT
+    ->     u.username,
+    ->     d.name AS doctor_name
+    -> FROM
+    ->     user u
+    -> CROSS JOIN
+    ->     doctor d;
++-----------+----------------------------------------------+
+| username  | doctor_name                                  |
++-----------+----------------------------------------------+
+| admin     | Dr.Mithani                                   |
+| admin     | DR.Parker                                    |
+| admin     | Dr.Mithani                                   |
+| admin     | DR.Parker                                    |
+| admin     | henil                                        |
+| admin     | kris                                         |
+| admin     | nishant                                      |
+| admin     | kunj                                         |
+| admin     | Ambulanz für Diabetologie und Endokrinologie |
+| admin     | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| test      | Dr.Mithani                                   |
+| test      | DR.Parker                                    |
+| test      | Dr.Mithani                                   |
+| test      | DR.Parker                                    |
+| test      | henil                                        |
+| test      | kris                                         |
+| test      | nishant                                      |
+| test      | kunj                                         |
+| test      | Ambulanz für Diabetologie und Endokrinologie |
+| test      | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| LuanTest  | Dr.Mithani                                   |
+| LuanTest  | DR.Parker                                    |
+| LuanTest  | Dr.Mithani                                   |
+| LuanTest  | DR.Parker                                    |
+| LuanTest  | henil                                        |
+| LuanTest  | kris                                         |
+| LuanTest  | nishant                                      |
+| LuanTest  | kunj                                         |
+| LuanTest  | Ambulanz für Diabetologie und Endokrinologie |
+| LuanTest  | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| hoaaang   | Dr.Mithani                                   |
+| hoaaang   | DR.Parker                                    |
+| hoaaang   | Dr.Mithani                                   |
+| hoaaang   | DR.Parker                                    |
+| hoaaang   | henil                                        |
+| hoaaang   | kris                                         |
+| hoaaang   | nishant                                      |
+| hoaaang   | kunj                                         |
+| hoaaang   | Ambulanz für Diabetologie und Endokrinologie |
+| hoaaang   | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| noel.b    | Dr.Mithani                                   |
+| noel.b    | DR.Parker                                    |
+| noel.b    | Dr.Mithani                                   |
+| noel.b    | DR.Parker                                    |
+| noel.b    | henil                                        |
+| noel.b    | kris                                         |
+| noel.b    | nishant                                      |
+| noel.b    | kunj                                         |
+| noel.b    | Ambulanz für Diabetologie und Endokrinologie |
+| noel.b    | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| Sankalp   | Dr.Mithani                                   |
+| Sankalp   | DR.Parker                                    |
+| Sankalp   | Dr.Mithani                                   |
+| Sankalp   | DR.Parker                                    |
+| Sankalp   | henil                                        |
+| Sankalp   | kris                                         |
+| Sankalp   | nishant                                      |
+| Sankalp   | kunj                                         |
+| Sankalp   | Ambulanz für Diabetologie und Endokrinologie |
+| Sankalp   | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| Time      | Dr.Mithani                                   |
+| Time      | DR.Parker                                    |
+| Time      | Dr.Mithani                                   |
+| Time      | DR.Parker                                    |
+| Time      | henil                                        |
+| Time      | kris                                         |
+| Time      | nishant                                      |
+| Time      | kunj                                         |
+| Time      | Ambulanz für Diabetologie und Endokrinologie |
+| Time      | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| nishant   | Dr.Mithani                                   |
+| nishant   | DR.Parker                                    |
+| nishant   | Dr.Mithani                                   |
+| nishant   | DR.Parker                                    |
+| nishant   | henil                                        |
+| nishant   | kris                                         |
+| nishant   | nishant                                      |
+| nishant   | kunj                                         |
+| nishant   | Ambulanz für Diabetologie und Endokrinologie |
+| nishant   | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| kunj      | Dr.Mithani                                   |
+| kunj      | DR.Parker                                    |
+| kunj      | Dr.Mithani                                   |
+| kunj      | DR.Parker                                    |
+| kunj      | henil                                        |
+| kunj      | kris                                         |
+| kunj      | nishant                                      |
+| kunj      | kunj                                         |
+| kunj      | Ambulanz für Diabetologie und Endokrinologie |
+| kunj      | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| sonu      | Dr.Mithani                                   |
+| sonu      | DR.Parker                                    |
+| sonu      | Dr.Mithani                                   |
+| sonu      | DR.Parker                                    |
+| sonu      | henil                                        |
+| sonu      | kris                                         |
+| sonu      | nishant                                      |
+| sonu      | kunj                                         |
+| sonu      | Ambulanz für Diabetologie und Endokrinologie |
+| sonu      | Praxis Frauenarzt am Zoo, Peter Ludwig       |
+| sankalp27 | Dr.Mithani                                   |
+| sankalp27 | DR.Parker                                    |
+| sankalp27 | Dr.Mithani                                   |
+| sankalp27 | DR.Parker                                    |
+| sankalp27 | henil                                        |
+| sankalp27 | kris                                         |
+| sankalp27 | nishant                                      |
+| sankalp27 | kunj                                         |
+| sankalp27 | Ambulanz für Diabetologie und Endokrinologie |
+| sankalp27 | Praxis Frauenarzt am Zoo, Peter Ludwig       |
++-----------+----------------------------------------------+
+110 rows in set (0.01 sec)
+
+mysql> SELECT
+    ->     u1.username AS user1,
+    ->     u2.username AS user2
+    -> FROM
+    ->     user u1
+    -> INNER JOIN
+    ->     user u2 ON u1.city = u2.city AND u1.id != u2.id;
++-----------+-----------+
+| user1     | user2     |
++-----------+-----------+
+| Time      | test      |
+| sankalp27 | Sankalp   |
+| sonu      | Sankalp   |
+| kunj      | Sankalp   |
+| nishant   | Sankalp   |
+| test      | Time      |
+| sankalp27 | nishant   |
+| sonu      | nishant   |
+| kunj      | nishant   |
+| Sankalp   | nishant   |
+| sankalp27 | kunj      |
+| sonu      | kunj      |
+| nishant   | kunj      |
+| Sankalp   | kunj      |
+| sankalp27 | sonu      |
+| kunj      | sonu      |
+| nishant   | sonu      |
+| Sankalp   | sonu      |
+| sonu      | sankalp27 |
+| kunj      | sankalp27 |
+| nishant   | sankalp27 |
+| Sankalp   | sankalp27 |
++-----------+-----------+
+22 rows in set (0.00 sec)
+
+mysql> SELECT
+    ->     u1.username AS user1,
+    ->     u2.username AS user2
+    -> FROM
+    ->     user u1
+    -> INNER JOIN
+    ->     user u2 ON u1.city = u2.city
+    ->             AND u1.id < u2.id;
++---------+-----------+
+| user1   | user2     |
++---------+-----------+
+| test    | Time      |
+| Sankalp | nishant   |
+| Sankalp | kunj      |
+| Sankalp | sonu      |
+| Sankalp | sankalp27 |
+| nishant | kunj      |
+| nishant | sonu      |
+| nishant | sankalp27 |
+| kunj    | sonu      |
+| kunj    | sankalp27 |
+| sonu    | sankalp27 |
++---------+-----------+
+11 rows in set (0.00 sec)
